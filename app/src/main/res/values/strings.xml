@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">MendoanApps</string>
+    <string name="remember_password">Remember Password</string>
+    <string name="log_in">Log In</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="nama_karyawan">Nama Karyawan</string>
+    <string name="nik">NIK</string>
+    <string name="lama_bekerja">Lama Bekerja</string>
+    <string name="posisi">posisi</string>
+    <string name="jurusan">Jurusan</string>
+    <string name="antareza_ghifary">Antareza Ghifary</string>
+    <string name="_10_tahun_12_bulan_27_hari">10 tahun 12 bulan 27 hari</string>
+    <string name="developer_analyst">Developer Analyst</string>
+    <string name="pendidikan">Pendidikan</string>
+    <string name="s1_on_going">S1 (On Going)</string>
+    <string name="daftar_karyawan_n_pmo">Daftar Karyawan \n PMO</string>
+    <string name="sistem_informasi">Sistem Informasi</string>
+    <string name="menu_aplikasi">Menu Aplikasi</string>
+    <string name="divisi">Divisi</string>
+    <string name="pmo">PMO</string>
+    <string name="daftar_karyawan_n_resign">Daftar Karyawan \n Resign</string>
+    <string name="list_karyawan">List Karyawan</string>
+    <string name="menu">Menu</string>
+</resources>
