@@ -9,7 +9,7 @@
     android:paddingLeft="16dp"
     android:paddingTop="24dp"
     android:paddingRight="16dp"
-    tools:context=".KaryawanResignActivity">
+    tools:context=".ui.resign.KaryawanResignActivity">
 
     <TextView
         android:id="@+id/titleName"

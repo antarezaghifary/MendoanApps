@@ -1,4 +1,4 @@
-package com.skripsi.mendoanapps.Home
+package com.skripsi.mendoanapps.adapter
 
 
 import android.annotation.SuppressLint
@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.oratakashi.viewbinding.core.binding.recyclerview.ViewHolder
 import com.oratakashi.viewbinding.core.binding.recyclerview.viewBinding
-import com.skripsi.mendoanapps.data.MenuApps
+import com.skripsi.mendoanapps.data.model.menu_app.MenuApps
 import com.skripsi.mendoanapps.databinding.ItemMenuHomeBinding
 
 class HomeAdapter(
-    private val heroes: (List<MenuApps>) -> Unit
+    private val heroes: (MenuApps) -> Unit
 ) : RecyclerView.Adapter<ViewHolder<ItemMenuHomeBinding>>() {
 
     override fun onCreateViewHolder(
@@ -23,7 +23,7 @@ class HomeAdapter(
             tvMenu.text = data[position].menu
 
             holder.itemView.setOnClickListener {
-                //onClick(data[position])
+                heroes(data[position])
             }
         }
     }

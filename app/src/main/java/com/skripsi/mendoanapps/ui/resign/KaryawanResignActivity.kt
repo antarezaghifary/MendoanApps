@@ -1,7 +1,8 @@
-package com.skripsi.mendoanapps
+package com.skripsi.mendoanapps.ui.resign
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.skripsi.mendoanapps.R
 
 class KaryawanResignActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
