@@ -16,6 +16,9 @@
         android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup">
         <activity
+            android:name=".ui.cuti.CutiActivity"
+            android:exported="true" />
+        <activity
             android:name=".ui.add_karyawan.AddKaryawanActivity"
             android:exported="true" />
         <activity

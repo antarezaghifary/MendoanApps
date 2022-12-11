@@ -42,4 +42,8 @@
     <string name="trelloid">Trelloid</string>
     <string name="lama_kerja">Lama Kerja</string>
     <string name="daftarkan_karyawan">Daftarkan Karyawan</string>
+    <string name="karyawan_cuti">Karyawan Cuti</string>
+    <string name="pilih_tanggal">Pilih Tanggal</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="submit">Submit</string>
 </resources>

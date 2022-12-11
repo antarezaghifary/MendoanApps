@@ -9,6 +9,7 @@ import com.skripsi.mendoanapps.adapter.HomeAdapter
 import com.skripsi.mendoanapps.data.model.menu_app.MenuApps
 import com.skripsi.mendoanapps.databinding.ActivityHomeBinding
 import com.skripsi.mendoanapps.ui.add_karyawan.AddKaryawanActivity
+import com.skripsi.mendoanapps.ui.cuti.CutiActivity
 import com.skripsi.mendoanapps.ui.karyawan.DataKaryawanActivity
 
 
@@ -55,6 +56,9 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         } else if (menu.menu == "Tambah Karyawan") {
             val intent = Intent(this@HomeActivity, AddKaryawanActivity::class.java)
+            startActivity(intent)
+        } else if (menu.menu == "Tambah Cuti") {
+            val intent = Intent(this@HomeActivity, CutiActivity::class.java)
             startActivity(intent)
         }
     }
