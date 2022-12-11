@@ -9,6 +9,7 @@ import com.skripsi.mendoanapps.adapter.HomeAdapter
 import com.skripsi.mendoanapps.data.model.menu_app.MenuApps
 import com.skripsi.mendoanapps.databinding.ActivityHomeBinding
 import com.skripsi.mendoanapps.ui.add_karyawan.AddKaryawanActivity
+import com.skripsi.mendoanapps.ui.add_karyawan_mutasi.AddKaryawanMutasiActivity
 import com.skripsi.mendoanapps.ui.cuti.CutiActivity
 import com.skripsi.mendoanapps.ui.karyawan.DataKaryawanActivity
 
@@ -38,7 +39,8 @@ class HomeActivity : AppCompatActivity() {
                 MenuApps("Tambah Cuti"),
                 MenuApps("Challenge Position"),
                 MenuApps("Tambah Challange"),
-                MenuApps("Edit Karyawan")
+                MenuApps("Edit Karyawan"),
+                MenuApps("Tambah Karyawan Mutasi")
             )
 
             adapter.addAll(listHeroes)
@@ -59,6 +61,9 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         } else if (menu.menu == "Tambah Cuti") {
             val intent = Intent(this@HomeActivity, CutiActivity::class.java)
+            startActivity(intent)
+        } else if (menu.menu == "Tambah Karyawan Mutasi") {
+            val intent = Intent(this@HomeActivity, AddKaryawanMutasiActivity::class.java)
             startActivity(intent)
         }
     }

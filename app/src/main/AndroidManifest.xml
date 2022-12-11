@@ -14,7 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CustomTheme"
         android:usesCleartextTraffic="true"
-        tools:ignore="AllowBackup">
+        tools:ignore="AllowBackup"
+        tools:targetApi="m">
+        <activity
+            android:name=".ui.add_challenge_karyawan.AddChallengeKaryawanActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.add_karyawan_mutasi.AddKaryawanMutasiActivity"
+            android:exported="true" />
         <activity
             android:name=".ui.cuti.CutiActivity"
             android:exported="true" />
@@ -23,10 +30,10 @@
             android:exported="true" />
         <activity
             android:name=".ui.resign.KaryawanResignActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ui.karyawan.DataKaryawanActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".ui.home.HomeActivity"
             android:exported="true">

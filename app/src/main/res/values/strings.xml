@@ -46,4 +46,26 @@
     <string name="pilih_tanggal">Pilih Tanggal</string>
     <string name="keterangan">Keterangan</string>
     <string name="submit">Submit</string>
+    <string name="tambah_karyawan_mutasi">Tambah Karyawan Mutasi</string>
+
+    <string name="selected_item">Selected item:</string>
+    <string name="mutasi_ke_divisi">Mutasi ke Divisi</string>
+    <string name="tambah_challenge_karyawan">Tambah Challenge Karyawan</string>
+    <string name="challenge_sebagai">Challenge Sebagai</string>
+    <string name="challenge_dimulai">Challenge Dimulai</string>
+    <string name="challenge_berakhir">Challenge Berakhir</string>
+
+    <string-array name="Languages">
+        <item>PMO</item>
+        <item>RMO</item>
+        <item>SDO</item>
+    </string-array>
+
+    <string-array name="Position">
+        <item>Developer Analyst</item>
+        <item>PM</item>
+        <item>System Analyst</item>
+    </string-array>
+
+
 </resources>
