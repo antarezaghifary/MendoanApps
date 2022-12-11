@@ -23,4 +23,23 @@
     <string name="daftar_karyawan_n_resign">Daftar Karyawan \n Resign</string>
     <string name="list_karyawan">List Karyawan</string>
     <string name="menu">Menu</string>
+    <string name="tambah_karyawan">Tambah Karyawan</string>
+    <string name="fullname">Fullname</string>
+    <string name="marital">Marital</string>
+    <string name="identitas">Identitas</string>
+    <string name="tanggal_masuk">Tanggal Masuk</string>
+    <string name="status_karyawan">Status Karyawan</string>
+    <string name="phone">Phone</string>
+    <string name="alamat">Alamat</string>
+    <string name="resource">Resource</string>
+    <string name="site">Site</string>
+    <string name="telegram">Telegram</string>
+    <string name="institusi">Institusi</string>
+    <string name="tempat_lahir">Tempat Lahir</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="status">Status</string>
+    <string name="nik_karyawan">Nik Karyawan</string>
+    <string name="trelloid">Trelloid</string>
+    <string name="lama_kerja">Lama Kerja</string>
+    <string name="daftarkan_karyawan">Daftarkan Karyawan</string>
 </resources>

@@ -43,7 +43,7 @@ class DataKaryawanActivity : AppCompatActivity() {
                     toast("Loading...")
                 }
                 is VmData.Success -> {
-                    Log.e("TAG", "Get data karyawan: $it")
+                    Log.e("TAG", "Get data karyawan: ${it.data}")
                 }
                 is VmData.Failure -> {
                     toast("${it.message}")
