@@ -1,47 +1,44 @@
 package com.skripsi.mendoanapps.ui.cuti
 
-import android.app.DatePickerDialog
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
+import com.oratakashi.viewbinding.core.tools.toast
 import com.skripsi.mendoanapps.databinding.ActivityCutiBinding
-import java.util.*
+import com.skripsi.mendoanapps.util.VmData
 
 
 class CutiActivity : AppCompatActivity() {
 
     private val binding: ActivityCutiBinding by viewBinding()
+    private val viewModel: CutiViewModel by viewModels()
+    private val adapter: CutiAdapter by lazy {
+        CutiAdapter {}
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initUI()
+        initObserver()
         initListener()
         setObserver()
     }
 
-    private fun initUI() {
-        setCalender()
+    private fun initObserver() {
+        viewModel.dataCuti()
     }
 
-    private fun setCalender() {
+    private fun initUI() {
         binding.apply {
-            etTanggal.setOnClickListener {
-                val mcurrentDate: Calendar = Calendar.getInstance()
+            swipeRefresh.setOnRefreshListener {
+                viewModel.dataCuti()
 
-                var date: String
-                val mDay = mcurrentDate.get(Calendar.DAY_OF_MONTH)
-                val mMonth = mcurrentDate.get(Calendar.MONTH)
-                val mYear = mcurrentDate.get(Calendar.YEAR)
-                val datePickerDialog = DatePickerDialog(
-                    this@CutiActivity,
-                    { view, year, month, dayOfMonth ->
-                        var month = month
-                        month = month + 1
-                        date = "$dayOfMonth-$month-$year"
-                        etTanggal.setText(date)
-                    }, mYear, mMonth, mDay
-                )
-                datePickerDialog.show()
+                adapter.notifyItemRemoved(0)
+                adapter.notifyDataSetChanged()
+
+                swipeRefresh.isRefreshing = false
             }
         }
     }
@@ -51,5 +48,27 @@ class CutiActivity : AppCompatActivity() {
     }
 
     private fun setObserver() {
+        viewModel.apply {
+            cuti.observe(this@CutiActivity) {
+                when (it) {
+                    is VmData.Loading -> {
+                        binding.swipeRefresh.isRefreshing = true
+                        toast("Loading")
+                    }
+                    is VmData.Success -> {
+                        toast("Success")
+                        binding.swipeRefresh.isRefreshing = false
+                        adapter.addAll(it.data)
+                        binding.rvCuti.adapter = adapter
+                        binding.rvCuti.layoutManager = LinearLayoutManager(this@CutiActivity)
+                    }
+                    is VmData.Failure -> {
+                        binding.swipeRefresh.isRefreshing = true
+                        toast(it.message.toString())
+                    }
+                    else -> {}
+                }
+            }
+        }
     }
 }

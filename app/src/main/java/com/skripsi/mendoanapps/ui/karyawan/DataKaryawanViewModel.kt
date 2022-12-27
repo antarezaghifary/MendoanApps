@@ -13,7 +13,7 @@ import org.json.JSONObject
 import retrofit2.HttpException
 
 class DataKaryawanViewModel : ViewModel() {
-    val getKaryawan: MutableLiveData<VmData<List<GetKaryawanResponseItem?>>> by liveData(VmData.default())
+    val getKaryawan: MutableLiveData<VmData<List<GetKaryawanResponseItem>>> by liveData(VmData.default())
 
     private val repository: UserRepository by lazy {
         UserRepository()
@@ -23,9 +23,9 @@ class DataKaryawanViewModel : ViewModel() {
         CompositeDisposable()
     }
 
-    fun dataKaryawan() {
+    fun dataKaryawan(userRole: String) {
         getKaryawan.value = VmData.loading()
-        repository.dataKaryawan()
+        repository.dataKaryawan(userRole)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({

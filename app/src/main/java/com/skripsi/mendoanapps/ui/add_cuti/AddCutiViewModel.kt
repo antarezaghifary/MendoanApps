@@ -1,9 +1,8 @@
-package com.skripsi.mendoanapps.ui.add_karyawan
+package com.skripsi.mendoanapps.ui.add_cuti
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.oratakashi.viewbinding.core.binding.livedata.liveData
-import com.skripsi.mendoanapps.data.model.karyawan.GetKaryawanResponseItem
 import com.skripsi.mendoanapps.data.model.karyawan.KaryawanResponse
 import com.skripsi.mendoanapps.data.repositories.UserRepository
 import com.skripsi.mendoanapps.util.VmData
@@ -13,8 +12,9 @@ import io.reactivex.schedulers.Schedulers
 import org.json.JSONObject
 import retrofit2.HttpException
 
-class AddKaryawanViewModel : ViewModel() {
-    val postKaryawan: MutableLiveData<VmData<KaryawanResponse>> by liveData(VmData.default())
+class AddCutiViewModel : ViewModel() {
+
+    val postCuti: MutableLiveData<VmData<KaryawanResponse>> by liveData(VmData.default())
 
     private val repository: UserRepository by lazy {
         UserRepository()
@@ -24,21 +24,21 @@ class AddKaryawanViewModel : ViewModel() {
         CompositeDisposable()
     }
 
-    fun postKaryawan(data: GetKaryawanResponseItem) {
-        postKaryawan.value = VmData.loading()
-        repository.postKaryawan(data)
+    fun postCuti(resource_name: String, tanggal: String, keterangan: String) {
+        postCuti.value = VmData.loading()
+        repository.postCuti(resource_name, tanggal, keterangan)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                postKaryawan.value = VmData.success(it)
+                postCuti.value = VmData.success(it)
             }, {
                 if (it is HttpException) {
                     it.response()?.errorBody()?.string()?.let { response ->
                         val message = JSONObject(response).getString("message")
-                        postKaryawan.value = VmData.fail(it, message)
+                        postCuti.value = VmData.fail(it, message)
                     }
                 } else {
-                    postKaryawan.value = VmData.fail(it, it.message)
+                    postCuti.value = VmData.fail(it, it.message)
                 }
             }).let { return@let compositeDisposable::add }
     }

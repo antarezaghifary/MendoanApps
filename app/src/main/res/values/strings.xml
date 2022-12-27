@@ -15,9 +15,9 @@
     <string name="developer_analyst">Developer Analyst</string>
     <string name="pendidikan">Pendidikan</string>
     <string name="s1_on_going">S1 (On Going)</string>
-    <string name="daftar_karyawan_n_pmo">Daftar Karyawan \n PMO</string>
+    <string name="daftar_karyawan_n_pmo">Daftar Karyawan</string>
     <string name="sistem_informasi">Sistem Informasi</string>
-    <string name="menu_aplikasi">Menu Aplikasi</string>
+    <string name="menu_aplikasi">Trello Port</string>
     <string name="divisi">Divisi</string>
     <string name="pmo">PMO</string>
     <string name="daftar_karyawan_n_resign">Daftar Karyawan \n Resign</string>
@@ -54,6 +54,9 @@
     <string name="challenge_sebagai">Challenge Sebagai</string>
     <string name="challenge_dimulai">Challenge Dimulai</string>
     <string name="challenge_berakhir">Challenge Berakhir</string>
+    <string name="user_id">User Id</string>
+    <string name="tanggal_cuti">Tanggal Cuti</string>
+    <string name="tambah_karyawan_cuti">Tambah Karyawan Cuti</string>
 
     <string-array name="Languages">
         <item>PMO</item>

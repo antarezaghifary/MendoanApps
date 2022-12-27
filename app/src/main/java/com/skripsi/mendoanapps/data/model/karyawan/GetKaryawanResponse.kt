@@ -4,8 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class GetKaryawanResponse(
 
-	@field:SerializedName("GetKaryawanResponses")
-	val getKaryawanResponse: List<GetKaryawanResponseItem?>
+    @field:SerializedName("karyawan")
+    val getKaryawanResponse: List<GetKaryawanResponseItem>
 )
 
 data class GetKaryawanResponseItem(

@@ -12,7 +12,7 @@ import com.skripsi.mendoanapps.R
 import com.skripsi.mendoanapps.databinding.ActivityAddChallengeKaryawanBinding
 import java.util.*
 
-class AddChallengeKaryawanActivity : AppCompatActivity(), ChallengeMulai {
+class AddChallengeKaryawanActivity : AppCompatActivity(), ChallengeKaryawan {
 
     private val binding: ActivityAddChallengeKaryawanBinding by viewBinding()
 

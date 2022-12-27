@@ -16,7 +16,7 @@ object Api {
             /**
              * URL TERPAKAI
              */
-            baseURl = "http://192.168.0.107:4000/"
+            baseURl = "http://103.189.234.18:9966/api/"
         )
     }
 }

@@ -7,17 +7,21 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.DrawableCompat
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
+import com.oratakashi.viewbinding.core.tools.toast
 import com.skripsi.mendoanapps.R
 import com.skripsi.mendoanapps.databinding.ActivityLoginBinding
 import com.skripsi.mendoanapps.ui.home.HomeActivity
+import com.skripsi.mendoanapps.util.VmData
 
 class LoginActivity : AppCompatActivity() {
 
     private val binding: ActivityLoginBinding by viewBinding()
+    private val viewModel: LoginViewModel by viewModels()
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -232,7 +236,7 @@ class LoginActivity : AppCompatActivity() {
                 binding.loginButton.setBackgroundResource(R.color.colordarkblue)
                 binding.loginButton.isEnabled = true
                 binding.loginButton.setOnClickListener {
-                    gotoHomePage()
+                    viewModel.postLogin(mUsername, mPassword)
                 }
             } else {
                 binding.loginButton.setBackgroundResource(R.color.colorwhiteblueshade)
@@ -254,7 +258,26 @@ class LoginActivity : AppCompatActivity() {
 
     private fun initObservable() {}
 
-    private fun setObservable() {}
+    private fun setObservable() {
+        viewModel.postLogin.observe(this) {
+            when (it) {
+                is VmData.Loading -> {
+                    toast("Loading . . .")
+                }
+                is VmData.Success -> {
+                    if (it.data.message.equals("Success")) {
+                        gotoHomePage()
+                    } else {
+                        toast(it.data.message.toString())
+                    }
+                }
+                is VmData.Failure -> {
+                    toast(it.message.toString())
+                }
+                else -> {}
+            }
+        }
+    }
 
     private fun gotoHomePage() {
         val intent = Intent(this, HomeActivity::class.java)
