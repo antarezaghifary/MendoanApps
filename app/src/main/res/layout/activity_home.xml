@@ -31,11 +31,20 @@
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_logout" />
 
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLastten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleName"
+        android:visibility="visible"
+        tools:listitem="@layout/item_menu_home" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleName"
+        android:layout_below="@+id/rvLastten"
         android:visibility="visible"
         tools:listitem="@layout/item_menu_home" />
 

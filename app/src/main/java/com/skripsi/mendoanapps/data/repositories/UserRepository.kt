@@ -1,8 +1,12 @@
 package com.skripsi.mendoanapps.data.repositories
 
+import com.skripsi.mendoanapps.data.model.aktivitas_date.ProjectItem
+import com.skripsi.mendoanapps.data.model.all_board.BoardsItem
 import com.skripsi.mendoanapps.data.model.cuti.CutiItem
+import com.skripsi.mendoanapps.data.model.idle.ResourceItem
 import com.skripsi.mendoanapps.data.model.karyawan.GetKaryawanResponseItem
 import com.skripsi.mendoanapps.data.model.karyawan.KaryawanResponse
+import com.skripsi.mendoanapps.data.model.lastten.LastTenItem
 import com.skripsi.mendoanapps.data.model.login.LoginResponse
 import com.skripsi.mendoanapps.data.model.project.GetProjectResponseItem
 import com.skripsi.mendoanapps.data.network.Api
@@ -65,6 +69,48 @@ class UserRepository {
             keterangan = keterangan
         ).map {
             it
+        }
+    }
+
+    fun getDataIdle(): Single<List<ResourceItem>> {
+        return Api.getApi().getDataIdle(
+            accept = "application/json"
+        ).map {
+            it.resource
+        }
+    }
+
+    fun getListProyek(): Single<List<BoardsItem>> {
+        return Api.getApi().getListProyek(
+            accept = "application/json"
+        ).map {
+            it.boards
+        }
+    }
+
+    fun getActivitybyDate(
+        karyawan: String,
+        dateassignment: String,
+        endassignment: String
+    ): Single<List<ProjectItem>> {
+        return Api.getApi().getActivityByDate(
+            accept = "application/json",
+            karyawan = karyawan,
+            dateassignment = dateassignment,
+            endassignment = endassignment
+        ).map {
+            it.project
+        }
+    }
+
+    fun getLastten(
+        user_role: String
+    ): Single<List<LastTenItem>> {
+        return Api.getApi().getLastten(
+            accept = "application/json",
+            user_role = user_role
+        ).map {
+            it.lastTen
         }
     }
 }

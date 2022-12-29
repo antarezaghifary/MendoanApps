@@ -17,11 +17,15 @@ import com.skripsi.mendoanapps.R
 import com.skripsi.mendoanapps.databinding.ActivityLoginBinding
 import com.skripsi.mendoanapps.ui.home.HomeActivity
 import com.skripsi.mendoanapps.util.VmData
+import com.skripsi.mendoanapps.util.extention
 
 class LoginActivity : AppCompatActivity() {
 
     private val binding: ActivityLoginBinding by viewBinding()
     private val viewModel: LoginViewModel by viewModels()
+    private val progressDialog: extention.CustomProgressDialog by lazy {
+        extention.CustomProgressDialog(this@LoginActivity)
+    }
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -262,17 +266,19 @@ class LoginActivity : AppCompatActivity() {
         viewModel.postLogin.observe(this) {
             when (it) {
                 is VmData.Loading -> {
-                    toast("Loading . . .")
+                    progressDialog.start("Loading")
                 }
                 is VmData.Success -> {
+                    progressDialog.stop()
                     if (it.data.message.equals("Success")) {
                         gotoHomePage()
                     } else {
+                        progressDialog.stop()
                         toast(it.data.message.toString())
                     }
                 }
                 is VmData.Failure -> {
-                    toast(it.message.toString())
+                    progressDialog.stop()
                 }
                 else -> {}
             }

@@ -1,4 +1,4 @@
-package com.skripsi.mendoanapps.ui.cuti
+package com.skripsi.mendoanapps.ui.idle
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -6,38 +6,32 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
 import com.oratakashi.viewbinding.core.tools.toast
-import com.skripsi.mendoanapps.databinding.ActivityCutiBinding
+import com.skripsi.mendoanapps.databinding.ActivityKaryawanIdleBinding
 import com.skripsi.mendoanapps.util.VmData
 import com.skripsi.mendoanapps.util.extention
 
+class KaryawanIdleActivity : AppCompatActivity() {
 
-class CutiActivity : AppCompatActivity() {
-
-    private val binding: ActivityCutiBinding by viewBinding()
-    private val viewModel: CutiViewModel by viewModels()
-    private val adapter: CutiAdapter by lazy {
-        CutiAdapter {}
+    private val binding: ActivityKaryawanIdleBinding by viewBinding()
+    private val viewModel: KaryawanIdleViewModel by viewModels()
+    private val adapter: KaryawanIdleAdapter by lazy {
+        KaryawanIdleAdapter {}
     }
     private val progressDialog: extention.CustomProgressDialog by lazy {
-        extention.CustomProgressDialog(this@CutiActivity)
+        extention.CustomProgressDialog(this@KaryawanIdleActivity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initUI()
-        initObserver()
         initListener()
-        setObserver()
-    }
-
-    private fun initObserver() {
-        viewModel.dataCuti()
+        initObserver()
     }
 
     private fun initUI() {
         binding.apply {
             swipeRefresh.setOnRefreshListener {
-                viewModel.dataCuti()
+                viewModel.dataIdle()
 
                 adapter.notifyItemRemoved(0)
                 adapter.notifyDataSetChanged()
@@ -48,27 +42,28 @@ class CutiActivity : AppCompatActivity() {
     }
 
     private fun initListener() {
-
+        viewModel.dataIdle()
     }
 
-    private fun setObserver() {
+    private fun initObserver() {
         viewModel.apply {
-            cuti.observe(this@CutiActivity) {
+            idle.observe(this@KaryawanIdleActivity) {
                 when (it) {
                     is VmData.Loading -> {
-                        binding.swipeRefresh.isRefreshing = true
                         progressDialog.start("Loading")
+                        binding.swipeRefresh.isRefreshing = true
                     }
                     is VmData.Success -> {
                         progressDialog.stop()
                         binding.swipeRefresh.isRefreshing = false
                         adapter.addAll(it.data)
-                        binding.rvCuti.adapter = adapter
-                        binding.rvCuti.layoutManager = LinearLayoutManager(this@CutiActivity)
+                        binding.rvIdle.adapter = adapter
+                        binding.rvIdle.layoutManager =
+                            LinearLayoutManager(this@KaryawanIdleActivity)
                     }
                     is VmData.Failure -> {
                         progressDialog.stop()
-                        binding.swipeRefresh.isRefreshing = true
+                        binding.swipeRefresh.isRefreshing = false
                         toast(it.message.toString())
                     }
                     else -> {}

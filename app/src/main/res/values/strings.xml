@@ -57,6 +57,17 @@
     <string name="user_id">User Id</string>
     <string name="tanggal_cuti">Tanggal Cuti</string>
     <string name="tambah_karyawan_cuti">Tambah Karyawan Cuti</string>
+    <string name="nama_proyek">Nama Proyek</string>
+    <string name="pos">POS</string>
+    <string name="aktifitas_terakhir">Aktifikas Terakhir</string>
+    <string name="aktivitas_by_date">Aktivitas By Date</string>
+    <string name="cari_aktifitas">Cari Aktifitas</string>
+    <string name="tanggal_mulai">Tanggal Mulai</string>
+    <string name="tanggal_selesai">Tanggal Selesai</string>
+    <string name="nama_project">Nama Project</string>
+    <string name="type">Type</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="url">url</string>
 
     <string-array name="Languages">
         <item>PMO</item>

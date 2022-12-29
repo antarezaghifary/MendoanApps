@@ -14,5 +14,11 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Other Themes -->
+
+    <style name="CustomDialogTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <style name="Theme.CustomTheme" parent="Theme.MaterialComponents.Light.NoActionBar"></style>
 </resources>

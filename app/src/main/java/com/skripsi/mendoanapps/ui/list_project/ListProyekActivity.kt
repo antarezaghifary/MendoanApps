@@ -1,4 +1,4 @@
-package com.skripsi.mendoanapps.ui.cuti
+package com.skripsi.mendoanapps.ui.list_project
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -6,38 +6,61 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
 import com.oratakashi.viewbinding.core.tools.toast
-import com.skripsi.mendoanapps.databinding.ActivityCutiBinding
+import com.skripsi.mendoanapps.databinding.ActivityListProyekBinding
 import com.skripsi.mendoanapps.util.VmData
 import com.skripsi.mendoanapps.util.extention
 
+class ListProyekActivity : AppCompatActivity() {
 
-class CutiActivity : AppCompatActivity() {
-
-    private val binding: ActivityCutiBinding by viewBinding()
-    private val viewModel: CutiViewModel by viewModels()
-    private val adapter: CutiAdapter by lazy {
-        CutiAdapter {}
+    private val binding: ActivityListProyekBinding by viewBinding()
+    private val viewModel: ListProyekViewModel by viewModels()
+    private val adapter: ListProyekAdapter by lazy {
+        ListProyekAdapter {}
     }
     private val progressDialog: extention.CustomProgressDialog by lazy {
-        extention.CustomProgressDialog(this@CutiActivity)
+        extention.CustomProgressDialog(this@ListProyekActivity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         initUI()
-        initObserver()
         initListener()
+        initObserver()
         setObserver()
     }
 
-    private fun initObserver() {
-        viewModel.dataCuti()
+    private fun setObserver() {
+        viewModel.apply {
+            listProyek.observe(this@ListProyekActivity) {
+                when (it) {
+                    is VmData.Loading -> {
+                        progressDialog.start("Loading")
+                        binding.swipeRefresh.isRefreshing = true
+                    }
+                    is VmData.Success -> {
+                        progressDialog.stop()
+                        binding.swipeRefresh.isRefreshing = false
+                        adapter.addAll(it.data)
+                        binding.rvListProyek.adapter = adapter
+                        binding.rvListProyek.layoutManager =
+                            LinearLayoutManager(this@ListProyekActivity)
+                    }
+                    is VmData.Failure -> {
+                        progressDialog.stop()
+                        binding.swipeRefresh.isRefreshing = false
+                        toast(it.message.toString())
+                    }
+                    else -> {}
+                }
+            }
+        }
     }
 
     private fun initUI() {
         binding.apply {
             swipeRefresh.setOnRefreshListener {
-                viewModel.dataCuti()
+                viewModel.dataListProyek()
 
                 adapter.notifyItemRemoved(0)
                 adapter.notifyDataSetChanged()
@@ -45,35 +68,14 @@ class CutiActivity : AppCompatActivity() {
                 swipeRefresh.isRefreshing = false
             }
         }
+
     }
 
     private fun initListener() {
 
     }
 
-    private fun setObserver() {
-        viewModel.apply {
-            cuti.observe(this@CutiActivity) {
-                when (it) {
-                    is VmData.Loading -> {
-                        binding.swipeRefresh.isRefreshing = true
-                        progressDialog.start("Loading")
-                    }
-                    is VmData.Success -> {
-                        progressDialog.stop()
-                        binding.swipeRefresh.isRefreshing = false
-                        adapter.addAll(it.data)
-                        binding.rvCuti.adapter = adapter
-                        binding.rvCuti.layoutManager = LinearLayoutManager(this@CutiActivity)
-                    }
-                    is VmData.Failure -> {
-                        progressDialog.stop()
-                        binding.swipeRefresh.isRefreshing = true
-                        toast(it.message.toString())
-                    }
-                    else -> {}
-                }
-            }
-        }
+    private fun initObserver() {
+        viewModel.dataListProyek()
     }
 }
