@@ -18,8 +18,11 @@ import com.skripsi.mendoanapps.ui.cuti.CutiActivity
 import com.skripsi.mendoanapps.ui.idle.KaryawanIdleActivity
 import com.skripsi.mendoanapps.ui.karyawan.DataKaryawanActivity
 import com.skripsi.mendoanapps.ui.list_project.ListProyekActivity
+import com.skripsi.mendoanapps.ui.login.LoginActivity
+import com.skripsi.mendoanapps.util.SharedPreference
 import com.skripsi.mendoanapps.util.VmData
 import com.skripsi.mendoanapps.util.extention
+import com.skripsi.mendoanapps.util.extention.setLogoutUser
 
 
 class HomeActivity : AppCompatActivity() {
@@ -36,6 +39,9 @@ class HomeActivity : AppCompatActivity() {
     }
     private val progressDialog: extention.CustomProgressDialog by lazy {
         extention.CustomProgressDialog(this@HomeActivity)
+    }
+    private val sharedPref: SharedPreference by lazy {
+        SharedPreference(this@HomeActivity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -79,10 +85,19 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        finish()
+        super.onBackPressed()
+    }
+
     private fun initListener() {
         binding.apply {
             ivLogout.setOnClickListener {
-                Toast.makeText(this@HomeActivity, "Logout", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@HomeActivity, "Berhasil Logout", Toast.LENGTH_SHORT).show()
+                setLogoutUser(sharedPreference = sharedPref)
+                intent = Intent(this@HomeActivity, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             }
         }
     }

@@ -29,7 +29,7 @@ class AddKaryawanMutasiActivity : AppCompatActivity() {
     private fun setDataSpinner() {
         binding.apply {
 
-            val languages = resources.getStringArray(R.array.Languages)
+            val languages = resources.getStringArray(R.array.posisi)
 
             val adapter = ArrayAdapter(
                 this@AddKaryawanMutasiActivity,

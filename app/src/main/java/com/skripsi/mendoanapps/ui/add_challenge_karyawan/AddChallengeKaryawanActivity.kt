@@ -43,7 +43,7 @@ class AddChallengeKaryawanActivity : AppCompatActivity(), ChallengeKaryawan {
     override fun setDataSpinnerChallenge() {
         binding.apply {
 
-            val positions = resources.getStringArray(R.array.Position)
+            val positions = resources.getStringArray(R.array.divisi_or_resource)
 
             val adapter = ArrayAdapter(
                 this@AddChallengeKaryawanActivity,

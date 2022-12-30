@@ -78,4 +78,8 @@ object extention {
         }
     }
 
+    fun setLogoutUser(sharedPreference: SharedPreference) {
+        sharedPreference.removeValue("isLoggin")
+    }
+
 }

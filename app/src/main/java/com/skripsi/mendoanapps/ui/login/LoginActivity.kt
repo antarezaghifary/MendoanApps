@@ -16,6 +16,7 @@ import com.oratakashi.viewbinding.core.tools.toast
 import com.skripsi.mendoanapps.R
 import com.skripsi.mendoanapps.databinding.ActivityLoginBinding
 import com.skripsi.mendoanapps.ui.home.HomeActivity
+import com.skripsi.mendoanapps.util.SharedPreference
 import com.skripsi.mendoanapps.util.VmData
 import com.skripsi.mendoanapps.util.extention
 
@@ -25,6 +26,9 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel: LoginViewModel by viewModels()
     private val progressDialog: extention.CustomProgressDialog by lazy {
         extention.CustomProgressDialog(this@LoginActivity)
+    }
+    private val sharedPref: SharedPreference by lazy {
+        SharedPreference(this@LoginActivity)
     }
 
     @SuppressLint("ClickableViewAccessibility")
@@ -272,6 +276,7 @@ class LoginActivity : AppCompatActivity() {
                     progressDialog.stop()
                     if (it.data.message.equals("Success")) {
                         gotoHomePage()
+                        sharedPref.save("isLoggin", true)
                     } else {
                         progressDialog.stop()
                         toast(it.data.message.toString())
@@ -288,5 +293,6 @@ class LoginActivity : AppCompatActivity() {
     private fun gotoHomePage() {
         val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }
