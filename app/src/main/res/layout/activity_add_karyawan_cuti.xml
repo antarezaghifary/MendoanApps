@@ -17,27 +17,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/tilFullname"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tvKaryawanCuti">-->
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/etFullname"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:background="@color/white"-->
+    <!--            android:hint="@string/fullname" />-->
+
+    <!--    </com.google.android.material.textfield.TextInputLayout>-->
+
+    <TextView
         android:id="@+id/tilFullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvKaryawanCuti">
+        android:layout_marginTop="16dp"
+        android:text="@string/fullname"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvKaryawanCuti" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etFullname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:hint="@string/fullname" />
-
-    </com.google.android.material.textfield.TextInputLayout>
+    <Spinner
+        android:id="@+id/spFullname"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintTop_toBottomOf="@+id/tilFullname" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilTanggal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tilFullname">
+        app:layout_constraintTop_toBottomOf="@+id/spFullname">
 
         <EditText
             android:id="@+id/etTanggal"

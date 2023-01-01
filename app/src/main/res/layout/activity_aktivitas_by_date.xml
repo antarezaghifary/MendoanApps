@@ -17,27 +17,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <!--    <com.google.android.material.textfield.TextInputLayout-->
+    <!--        android:id="@+id/tilFullname"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tvKaryawanCuti">-->
+
+    <!--        <com.google.android.material.textfield.TextInputEditText-->
+    <!--            android:id="@+id/etFullname"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:background="@color/white"-->
+    <!--            android:hint="@string/fullname" />-->
+    <!--</com.google.android.material.textfield.TextInputLayout>-->
+
+    <TextView
         android:id="@+id/tilFullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvKaryawanCuti">
+        android:layout_marginTop="16dp"
+        android:text="@string/fullname"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/tvKaryawanCuti" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etFullname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:hint="@string/fullname" />
+    <Spinner
+        android:id="@+id/spFullname"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintTop_toBottomOf="@+id/tilFullname" />
 
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilTanggalMulai"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tilFullname">
+        app:layout_constraintTop_toBottomOf="@+id/spFullname">
 
         <EditText
             android:id="@+id/etTanggalMulai"
@@ -110,5 +125,17 @@
             tools:listitem="@layout/item_aktivitas_date" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <TextView
+        android:id="@+id/tvDataNull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Data Tidak Tersedia"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintTop_toBottomOf="@+id/tvKaryawanIdle" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

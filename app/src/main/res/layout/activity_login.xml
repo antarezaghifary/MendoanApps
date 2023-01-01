@@ -48,23 +48,23 @@
         android:inputType="textPassword"
         tools:ignore="Autofill" />
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <!--    <androidx.appcompat.widget.AppCompatTextView-->
 
-        android:id="@+id/forgot_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="25dp"
-        android:text="@string/forgot_password"
-        android:textColor="#8F8686"
-        android:textSize="15sp" />
+    <!--        android:id="@+id/forgot_password"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/password"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginTop="25dp"-->
+    <!--        android:text="@string/forgot_password"-->
+    <!--        android:textColor="#8F8686"-->
+    <!--        android:textSize="15sp" />-->
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/login_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_below="@+id/forgot_password"
+        android:layout_below="@+id/password"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -73,22 +73,22 @@
         android:textSize="20sp"
         android:textAllCaps="false"
         android:background="#00008b"
-        android:enabled="false"/>
+        android:enabled="false" />
 
-    <androidx.appcompat.widget.AppCompatCheckBox
-        android:id="@+id/remember_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/login_button"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="20dp"
-        android:checked="false"
-        android:text="@string/remember_password"
-        android:textSize="12sp"
-        tools:ignore="TouchTargetSizeCheck" />
+    <!--    <androidx.appcompat.widget.AppCompatCheckBox-->
+    <!--        android:id="@+id/remember_password"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_below="@+id/login_button"-->
+    <!--        android:layout_alignParentStart="true"-->
+    <!--        android:layout_marginStart="20dp"-->
+    <!--        android:layout_marginLeft="20dp"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:layout_marginRight="20dp"-->
+    <!--        android:checked="false"-->
+    <!--        android:text="@string/remember_password"-->
+    <!--        android:textSize="12sp"-->
+    <!--        tools:ignore="TouchTargetSizeCheck" />-->
 
 
 </RelativeLayout>

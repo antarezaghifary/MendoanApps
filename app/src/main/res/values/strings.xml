@@ -68,6 +68,9 @@
     <string name="type">Type</string>
     <string name="tanggal">Tanggal</string>
     <string name="url">url</string>
+    <string name="penempatan">penempatan</string>
+    <string name="user_role">User Role</string>
+    <string name="last_activity">Last Activity</string>
 
     <string-array name="divisi_or_resource">
         <item>PMO</item>

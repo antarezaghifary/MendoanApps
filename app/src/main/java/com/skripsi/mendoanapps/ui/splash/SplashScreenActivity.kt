@@ -1,4 +1,4 @@
-package com.skripsi.mendoanapps.ui
+package com.skripsi.mendoanapps.ui.splash
 
 import android.content.Intent
 import android.os.Bundle

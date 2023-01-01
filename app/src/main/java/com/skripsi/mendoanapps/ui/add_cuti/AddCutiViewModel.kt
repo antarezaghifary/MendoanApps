@@ -3,6 +3,7 @@ package com.skripsi.mendoanapps.ui.add_cuti
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.oratakashi.viewbinding.core.binding.livedata.liveData
+import com.skripsi.mendoanapps.data.model.karyawan.GetKaryawanResponseItem
 import com.skripsi.mendoanapps.data.model.karyawan.KaryawanResponse
 import com.skripsi.mendoanapps.data.repositories.UserRepository
 import com.skripsi.mendoanapps.util.VmData
@@ -15,6 +16,7 @@ import retrofit2.HttpException
 class AddCutiViewModel : ViewModel() {
 
     val postCuti: MutableLiveData<VmData<KaryawanResponse>> by liveData(VmData.default())
+    val getKaryawan: MutableLiveData<VmData<List<GetKaryawanResponseItem>>> by liveData(VmData.default())
 
     private val repository: UserRepository by lazy {
         UserRepository()
@@ -39,6 +41,25 @@ class AddCutiViewModel : ViewModel() {
                     }
                 } else {
                     postCuti.value = VmData.fail(it, it.message)
+                }
+            }).let { return@let compositeDisposable::add }
+    }
+
+    fun dataKaryawan(userRole: String) {
+        getKaryawan.value = VmData.loading()
+        repository.dataKaryawan(userRole)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+                getKaryawan.value = VmData.success(it)
+            }, {
+                if (it is HttpException) {
+                    it.response()?.errorBody()?.string()?.let { response ->
+                        val message = JSONObject(response).getString("message")
+                        getKaryawan.value = VmData.fail(it, message)
+                    }
+                } else {
+                    getKaryawan.value = VmData.fail(it, it.message)
                 }
             }).let { return@let compositeDisposable::add }
     }

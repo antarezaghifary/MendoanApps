@@ -59,6 +59,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initObserver() {
         viewModel.dataLastter("2")
+        viewModel.dataKaryawan(userRole = "2")
     }
 
     private fun setObserver() {
@@ -112,7 +113,7 @@ class HomeActivity : AppCompatActivity() {
                 MenuApps("Daftar Proyek"),
                 MenuApps("Aktifitas berdasarkan tanggal"),
                 MenuApps("Karyawan Idle"),
-                MenuApps("Timesheet")
+//                MenuApps("Timesheet")
             )
 
             adapterHome.addAll(listHeroes)

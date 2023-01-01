@@ -1,7 +1,11 @@
 package com.skripsi.mendoanapps.ui.aktivitas
 
+import android.R
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,6 +30,9 @@ class AktivitasByDateActivity : AppCompatActivity() {
     lateinit var fullname: String
     lateinit var dateMulai: String
     lateinit var dateSelesai: String
+
+    private val dataKaryawan: ArrayList<String> = ArrayList()
+    private var dataFullname: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -82,7 +89,7 @@ class AktivitasByDateActivity : AppCompatActivity() {
             }
 
             btAddCuti.setOnClickListener {
-                fullname = etFullname.text.toString()
+                fullname = dataFullname!!
                 viewModel.dataActivity(
                     karyawan = fullname,
                     dateassignment = dateMulai,
@@ -93,7 +100,7 @@ class AktivitasByDateActivity : AppCompatActivity() {
     }
 
     private fun initObserver() {
-
+        viewModel.dataKaryawan(userRole = "2")
     }
 
     private fun setObserver() {
@@ -104,11 +111,19 @@ class AktivitasByDateActivity : AppCompatActivity() {
                     binding.swipeRefresh.isRefreshing = true
                 }
                 is VmData.Success -> {
-                    progressDialog.stop()
-                    binding.swipeRefresh.isRefreshing = false
-                    adapter.addAll(it.data)
-                    binding.rvAktivitas.adapter = adapter
-                    binding.rvAktivitas.layoutManager = LinearLayoutManager(this)
+                    if (it.data != null) {
+                        progressDialog.stop()
+                        binding.swipeRefresh.isRefreshing = false
+                        adapter.addAll(it.data)
+                        binding.rvAktivitas.adapter = adapter
+                        binding.rvAktivitas.layoutManager = LinearLayoutManager(this)
+                    } else {
+                        progressDialog.stop()
+                        binding.swipeRefresh.isRefreshing = false
+                        binding.rvAktivitas.visibility = View.GONE
+                        binding.tvDataNull.visibility = View.VISIBLE
+                    }
+
                 }
                 is VmData.Failure -> {
                     progressDialog.stop()
@@ -116,6 +131,53 @@ class AktivitasByDateActivity : AppCompatActivity() {
                     toast("${it.message}")
                 }
                 else -> {}
+            }
+        }
+        viewModel.getKaryawan.observe(this@AktivitasByDateActivity) {
+            when (it) {
+                is VmData.Loading -> {
+                    progressDialog.start("Loading")
+                }
+                is VmData.Success -> {
+                    progressDialog.stop()
+                    it.data.forEach {
+                        dataKaryawan.add(it.userId!!)
+                        setDataSpinnerDivisi()
+                    }
+                }
+                is VmData.Failure -> {
+                    progressDialog.stop()
+                }
+            }
+        }
+    }
+
+    private fun setDataSpinnerDivisi() {
+        binding.apply {
+
+            val adapter = ArrayAdapter(
+                this@AktivitasByDateActivity,
+                R.layout.simple_spinner_item, dataKaryawan
+            )
+            spFullname.adapter = adapter
+
+            spFullname.onItemSelectedListener = object :
+                AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View, position: Int, id: Long
+                ) {
+//                    Toast.makeText(
+//                        this@AddKaryawanActivity,
+//                        getString(R.string.selected_item) + " " +
+//                                "" + identitas[position], Toast.LENGTH_SHORT
+//                    ).show()
+                    dataFullname = dataKaryawan[position]
+                }
+
+                override fun onNothingSelected(parent: AdapterView<*>) {
+                    // write code to perform some action
+                }
             }
         }
     }

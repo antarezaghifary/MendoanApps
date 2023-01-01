@@ -218,15 +218,15 @@ class LoginActivity : AppCompatActivity() {
                 false
             }
 
-            rememberPassword.setOnClickListener {
-                if (!(binding.rememberPassword.isSelected)) {
-                    binding.rememberPassword.isChecked = true
-                    binding.rememberPassword.isSelected = true
-                } else {
-                    binding.rememberPassword.isChecked = false
-                    binding.rememberPassword.isSelected = false
-                }
-            }
+//            rememberPassword.setOnClickListener {
+//                if (!(binding.rememberPassword.isSelected)) {
+//                    binding.rememberPassword.isChecked = true
+//                    binding.rememberPassword.isSelected = true
+//                } else {
+//                    binding.rememberPassword.isChecked = false
+//                    binding.rememberPassword.isSelected = false
+//                }
+//            }
         }
     }
 

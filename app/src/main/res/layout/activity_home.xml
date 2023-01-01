@@ -31,20 +31,43 @@
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_logout" />
 
+    <TextView
+        android:id="@+id/tvLastActiv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleName"
+        android:text="@string/last_activity"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal" />
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLastten"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titleName"
+        android:layout_below="@+id/tvLastActiv"
         android:visibility="visible"
+        android:layout_marginTop="12dp"
         tools:listitem="@layout/item_menu_home" />
+
+    <TextView
+        android:id="@+id/tvMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rvLastten"
+        android:layout_marginTop="16dp"
+        android:text="@string/menu"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="normal" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/rvLastten"
+        android:layout_below="@+id/tvMenu"
+        android:layout_marginTop="12dp"
         android:visibility="visible"
         tools:listitem="@layout/item_menu_home" />
 

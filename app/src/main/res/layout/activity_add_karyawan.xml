@@ -55,18 +55,31 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-            <com.google.android.material.textfield.TextInputLayout
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etMarital"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/marital" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/tvMarital"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/marital"
+                android:textSize="18sp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etMarital"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/marital" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spMarital"
+                android:layout_width="match_parent"
+                android:layout_height="56dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -81,57 +94,106 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etIdentitas"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/identitas" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/tvIdentitas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/identitas"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <Spinner
+                android:id="@+id/spIdentitas"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etDivisi"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/divisi" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/tvDivisi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/divisi"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <Spinner
+                android:id="@+id/spDivisi"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etIdentitas"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/identitas" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etDivisi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/divisi" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <com.google.android.material.textfield.TextInputEditText
+                <EditText
                     android:id="@+id/etTglMasuk"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/tanggal_masuk" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etStatusKaryawan"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/status_karyawan" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/tvStatusKaryawan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/status_karyawan"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etStatusKaryawan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/status_karyawan" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spStatusKaryawan"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -172,18 +234,33 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etPosisi"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/posisi" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/tvPosisi"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/posisi"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPosisi"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/posisi" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spPosisi"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
 
             <!--            <com.google.android.material.textfield.TextInputLayout-->
             <!--                android:layout_width="match_parent"-->
@@ -198,18 +275,49 @@
 
             <!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <com.google.android.material.textfield.TextInputLayout
+            <TextView
+                android:id="@+id/tvResource"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/resource"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etSite"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/site" />
+            <Spinner
+                android:id="@+id/spResource"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etSite"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/site" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+            <TextView
+                android:id="@+id/tvPenempatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/penempatan"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
+
+            <Spinner
+                android:id="@+id/spPenempatan"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -225,18 +333,33 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etPendidikan"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/pendidikan" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+            <TextView
+                android:id="@+id/tvPendidikan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/pendidikan"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etPendidikan"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/pendidikan" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spPendidikan"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -274,22 +397,42 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
+                    android:clickable="true"
+                    android:editable="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/tanggal_lahir" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
+            <!--            <com.google.android.material.textfield.TextInputLayout-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content">-->
+
+            <!--                <com.google.android.material.textfield.TextInputEditText-->
+            <!--                    android:id="@+id/etStatus"-->
+            <!--                    android:layout_width="match_parent"-->
+            <!--                    android:layout_height="wrap_content"-->
+            <!--                    android:background="@color/white"-->
+            <!--                    android:hint="@string/status" />-->
+
+            <!--            </com.google.android.material.textfield.TextInputLayout>-->
+
+
+            <TextView
+                android:id="@+id/tvUserRole"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@string/user_role"
+                android:textSize="18sp"
+                tools:layout_editor_absoluteX="16dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/etStatus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:hint="@string/status" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spUserRole"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                tools:layout_editor_absoluteX="16dp" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -347,12 +490,17 @@
 
             <!--            </com.google.android.material.textfield.TextInputLayout>-->
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btAddKaryawan"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="20dp"
-                android:text="@string/daftarkan_karyawan" />
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="60dp"
+                android:background="#00008b"
+                android:text="@string/daftarkan_karyawan"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
