@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
 import com.oratakashi.viewbinding.core.tools.toast
+import com.skripsi.mendoanapps.data.model.karyawan.GetKaryawanResponseItem
 import com.skripsi.mendoanapps.databinding.ActivityAktivitasByDateBinding
 import com.skripsi.mendoanapps.util.VmData
 import com.skripsi.mendoanapps.util.extention
@@ -33,6 +34,9 @@ class AktivitasByDateActivity : AppCompatActivity() {
 
     private val dataKaryawan: ArrayList<String> = ArrayList()
     private var dataFullname: String? = null
+
+    private val dataku: ArrayList<GetKaryawanResponseItem>? = ArrayList()
+    private var idNama: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -89,7 +93,7 @@ class AktivitasByDateActivity : AppCompatActivity() {
             }
 
             btAddCuti.setOnClickListener {
-                fullname = dataFullname!!
+                fullname = idNama!!
                 viewModel.dataActivity(
                     karyawan = fullname,
                     dateassignment = dateMulai,
@@ -141,7 +145,8 @@ class AktivitasByDateActivity : AppCompatActivity() {
                 is VmData.Success -> {
                     progressDialog.stop()
                     it.data.forEach {
-                        dataKaryawan.add(it.userId!!)
+                        dataKaryawan.add(it.fullname!!)
+                        dataku?.addAll(listOf(it))
                         setDataSpinnerDivisi()
                     }
                 }
@@ -172,7 +177,8 @@ class AktivitasByDateActivity : AppCompatActivity() {
 //                        getString(R.string.selected_item) + " " +
 //                                "" + identitas[position], Toast.LENGTH_SHORT
 //                    ).show()
-                    dataFullname = dataKaryawan[position]
+                    dataFullname = dataku?.get(position)?.fullname //dataKaryawan[position]
+                    idNama = dataku?.get(position)?.userId
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {

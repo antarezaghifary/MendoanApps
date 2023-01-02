@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.oratakashi.viewbinding.core.binding.activity.viewBinding
 import com.oratakashi.viewbinding.core.tools.toast
+import com.skripsi.mendoanapps.data.model.karyawan.GetKaryawanResponseItem
 import com.skripsi.mendoanapps.databinding.ActivityAddKaryawanCutiBinding
 import com.skripsi.mendoanapps.ui.home.HomeActivity
 import com.skripsi.mendoanapps.util.SharedPreference
@@ -29,6 +30,9 @@ class AddKaryawanCutiActivity : AppCompatActivity() {
         SharedPreference(this@AddKaryawanCutiActivity)
     }
     private val dataKaryawan: ArrayList<String> = ArrayList()
+    private val dataku: ArrayList<GetKaryawanResponseItem>? = ArrayList()
+    private var idNama: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +74,8 @@ class AddKaryawanCutiActivity : AppCompatActivity() {
                     is VmData.Success -> {
                         progressDialog.stop()
                         it.data.forEach {
-                            dataKaryawan.add(it.userId!!)
+                            dataKaryawan.add(it.fullname!!)
+                            dataku?.addAll(listOf(it))
                             setDataSpinnerDivisi()
                         }
                     }
@@ -111,7 +116,11 @@ class AddKaryawanCutiActivity : AppCompatActivity() {
 //                        getString(R.string.selected_item) + " " +
 //                                "" + identitas[position], Toast.LENGTH_SHORT
 //                    ).show()
-                    dataFullname = dataKaryawan[position]
+//                    dataFullname = dataKaryawan[position]
+
+                    dataFullname = dataku?.get(position)?.fullname
+                    idNama = dataku?.get(position)?.userId
+
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>) {

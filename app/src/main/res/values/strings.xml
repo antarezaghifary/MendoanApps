@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MendoanApps</string>
+    <string name="app_name">Teleport</string>
     <string name="remember_password">Remember Password</string>
     <string name="log_in">Log In</string>
     <string name="forgot_password">Forgot Password</string>
@@ -71,6 +71,9 @@
     <string name="penempatan">penempatan</string>
     <string name="user_role">User Role</string>
     <string name="last_activity">Last Activity</string>
+    <string name="username">Username</string>
+    <string name="karyawan_idle">Karyawan Idle</string>
+    <string name="daftar_proyek">Daftar Proyek</string>
 
     <string-array name="divisi_or_resource">
         <item>PMO</item>
