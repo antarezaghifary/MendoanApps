@@ -13,7 +13,6 @@ import com.oratakashi.viewbinding.core.tools.toast
 import com.skripsi.mendoanapps.data.model.karyawan.GetKaryawanResponseItem
 import com.skripsi.mendoanapps.databinding.ActivityAddKaryawanCutiBinding
 import com.skripsi.mendoanapps.ui.home.HomeActivity
-import com.skripsi.mendoanapps.util.SharedPreference
 import com.skripsi.mendoanapps.util.VmData
 import com.skripsi.mendoanapps.util.extention
 import java.util.*
@@ -26,9 +25,6 @@ class AddKaryawanCutiActivity : AppCompatActivity() {
         extention.CustomProgressDialog(this@AddKaryawanCutiActivity)
     }
     private var dataFullname: String? = null
-    private val sharedPref: SharedPreference by lazy {
-        SharedPreference(this@AddKaryawanCutiActivity)
-    }
     private val dataKaryawan: ArrayList<String> = ArrayList()
     private val dataku: ArrayList<GetKaryawanResponseItem>? = ArrayList()
     private var idNama: String? = null
@@ -151,11 +147,20 @@ class AddKaryawanCutiActivity : AppCompatActivity() {
             }
 
             btAddCuti.setOnClickListener {
-                viewModel.postCuti(
-                    resource_name = dataFullname!!, //etFullname.text.toString(),
-                    tanggal = date ?: "",
-                    keterangan = etKeterangan.text.toString()
-                )
+
+                val check =
+                    dataFullname?.isNotEmpty() ?: true && date?.isNotEmpty() ?: true && etKeterangan.text.toString()
+                        .isNotEmpty()
+
+                if (check) {
+                    viewModel.postCuti(
+                        resource_name = dataFullname ?: "", //etFullname.text.toString(),
+                        tanggal = date ?: "",
+                        keterangan = etKeterangan.text.toString()
+                    )
+                } else {
+                    toast("Isi Dulu")
+                }
             }
         }
     }

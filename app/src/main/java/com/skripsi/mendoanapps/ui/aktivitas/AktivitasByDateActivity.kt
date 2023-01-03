@@ -27,10 +27,9 @@ class AktivitasByDateActivity : AppCompatActivity() {
     private val progressDialog: extention.CustomProgressDialog by lazy {
         extention.CustomProgressDialog(this@AktivitasByDateActivity)
     }
-
-    lateinit var fullname: String
-    lateinit var dateMulai: String
-    lateinit var dateSelesai: String
+    
+    private var dateMulai: String? = null
+    private var dateSelesai: String? = null
 
     private val dataKaryawan: ArrayList<String> = ArrayList()
     private var dataFullname: String? = null
@@ -93,12 +92,23 @@ class AktivitasByDateActivity : AppCompatActivity() {
             }
 
             btAddCuti.setOnClickListener {
-                fullname = idNama!!
-                viewModel.dataActivity(
-                    karyawan = fullname,
-                    dateassignment = dateMulai,
-                    endassignment = dateSelesai
-                )
+
+                val dataName = idNama
+                val dataMulai = dateMulai
+                val dataSelesai = dateSelesai
+
+                val checkNullData =
+                    dataMulai?.isNotEmpty() ?: true && dataSelesai?.isNotEmpty() ?: true
+
+                if (checkNullData) {
+                    viewModel.dataActivity(
+                        karyawan = dataName ?: "",
+                        dateassignment = dataMulai ?: "",
+                        endassignment = dataSelesai ?: ""
+                    )
+                } else {
+                    toast("Isi Dulu")
+                }
             }
         }
     }
