@@ -20,7 +20,7 @@ class KaryawanIdleAdapter(
     override fun onBindViewHolder(holder: ViewHolder<ItemIdleBinding>, position: Int) {
         with(holder.binding) {
             tvNamaKaryawan.text = data[position].fullname
-            tvKeterangan.text = data[position].keterangan.toString()
+            tvKeterangan.text = if(data[position].keterangan == null) "-" else data[position].keterangan.toString()
         }
     }
 
